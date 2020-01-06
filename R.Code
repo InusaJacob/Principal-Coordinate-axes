@@ -1,0 +1,8 @@
+#import your genetic distance matrix
+library(readxl)
+gendist <- read_excel("Desktop/genetic_distance_matrix.xlsx")
+gendist <- gendist[, -1]
+fit<-cmdscale(gendist, eig=TRUE, k=2)
+x <- fit$points[, 1]
+y <- fit$points[, 2]
+plot(x,y)
